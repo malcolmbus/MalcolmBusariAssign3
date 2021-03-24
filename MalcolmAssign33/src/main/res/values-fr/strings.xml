@@ -5,4 +5,7 @@
 -->
 <resources>
     <string name="app_name">MalcolmBusari991523264</string>
+    <string name="draw">Draw</string>
+    <string name="home">Home</string>
+    <string name="animation">Animation</string>
 </resources>
