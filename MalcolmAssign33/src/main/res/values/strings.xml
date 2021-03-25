@@ -12,5 +12,7 @@
     <string name="camera">Camera</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
+    <string name="malcolm">Malcolm</string>
+    <string name="busari">Busari</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
