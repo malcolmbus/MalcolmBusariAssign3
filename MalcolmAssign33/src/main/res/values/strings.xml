@@ -8,8 +8,6 @@
     <string name="draw">Draw</string>
     <string name="home">Home</string>
     <string name="animation">Animation</string>
+    <string name="malcolm_busari_991523264">Malcolm Busari 991523264</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Home</string>
-    <string name="hello_blank_fragment2">Draw</string>
-    <string name="hello_blank_fragment3">Animation</string>
 </resources>
