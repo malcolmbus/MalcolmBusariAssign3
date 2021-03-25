@@ -14,6 +14,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DrawFragment extends Fragment {
+    private CanvasView customCanvas;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +50,8 @@ public class DrawFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        customCanvas = (CanvasView) getView().findViewById(R.id.malcolmCanvasView);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -60,6 +63,11 @@ public class DrawFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         return inflater.inflate(R.layout.fragment_draw, container, false);
+    }
+
+    public void clearCanvas(View v){
+        customCanvas.clearCanvas();
     }
 }
