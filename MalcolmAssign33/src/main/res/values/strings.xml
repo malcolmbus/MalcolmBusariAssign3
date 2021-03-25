@@ -9,5 +9,8 @@
     <string name="home">Home</string>
     <string name="animation">Animation</string>
     <string name="malcolm_busari_991523264">Malcolm Busari 991523264</string>
+    <string name="camera">Camera</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
