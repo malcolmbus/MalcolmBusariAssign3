@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,48 @@ public class AnimationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_animation, container, false);
+        View view = inflater.inflate(R.layout.fragment_animation, container, false);
+
+        Button startBtn = view.findViewById(R.id.malcolmStartBtn);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performAnimation(R.anim.rotate);
+                performAnimation(R.anim.scale);
+                performAnimation(R.anim.translate);
+            }
+        });
+        return view;
+    }
+
+    private void performAnimation(int animationResourceID)
+    {
+        ImageView reusableImageView = getView().findViewById(R.id.malcolmMoonImg);
+        reusableImageView.setImageResource(R.drawable.moon);
+        reusableImageView.setVisibility(View.VISIBLE);
+
+        Animation an =  AnimationUtils.loadAnimation(getContext(), animationResourceID);
+        an.setAnimationListener(new MyAnimationListener());
+        reusableImageView.startAnimation(an);
+    }
+
+    class MyAnimationListener implements Animation.AnimationListener {
+
+        public void onAnimationEnd(Animation animation) {
+            // Hide our ImageView
+            ImageView reusableImageView = getView().findViewById(R.id.malcolmMoonImg);
+            reusableImageView.setVisibility(View.INVISIBLE);
+
+        }
+
+        public void onAnimationRepeat(Animation animation) {
+            // what to do when animation loops
+        }
+
+        public void onAnimationStart(Animation animation) {
+            // Disable all buttons while animation is running
+
+        }
+
     }
 }

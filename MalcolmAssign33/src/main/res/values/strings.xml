@@ -15,9 +15,6 @@
     <string name="malcolm">Malcolm</string>
     <string name="busari">Busari</string>
     <string name="clear_canvas">Clear</string>
-    <string name="rotate">Rotate</string>
-    <string name="scale">Scale</string>
-    <string name="translate">Translate</string>
     <string name="update_canvas">Update</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

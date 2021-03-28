@@ -18,8 +18,11 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -33,6 +36,8 @@ public class HomeFragment extends Fragment {
 
     private static final int CAMERA_PERMISSION_CODE = 100;
     AnimationDrawable mframeAnimation = null;
+    private Spinner durationSpinner;
+    private static final String[] paths = {"0.25s", "0.3s", "0.35s", "0.4s"};
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,8 +97,41 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        durationSpinner = view.findViewById(R.id.malcolmDurationSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, paths);
+        durationSpinner.setAdapter(adapter);
+
         Button startBtn = view.findViewById(R.id.malcolmStartBtn);
-        startBtn.setOnClickListener(v -> startAnimation());
+        startBtn.setOnClickListener(v -> durationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view1, int position, long id) {
+
+                int pos = parent.getSelectedItemPosition();
+                if (pos == 0) {
+                    startAnimation(250);
+                }
+                else if(pos == 1){
+                    startAnimation(300);
+
+                }
+                else if(pos == 2){
+                    startAnimation(350);
+                }
+                else if(pos == 3){
+                    startAnimation(400);
+                }
+                else{
+                    startAnimation(250);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
+        }));
 
         // Handle Stop Button
         Button stopBtn = view.findViewById(R.id.malcolmStopBtn);
@@ -143,30 +181,32 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void startAnimation()
+    private void startAnimation(int duration)
     {
-
         ImageView img = getView().findViewById(R.id.malcolmHomeIV);
 
-        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy1);
-        BitmapDrawable frame2 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy2);
-        BitmapDrawable frame3 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy3);
-        BitmapDrawable frame4 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy4);
-        BitmapDrawable frame5 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy5);
-        BitmapDrawable frame6 = (BitmapDrawable)getResources().getDrawable(R.drawable.boy6);
+        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__000);
+        BitmapDrawable frame2 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__001);
+        BitmapDrawable frame3 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__002);
+        BitmapDrawable frame4 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__003);
+        BitmapDrawable frame5 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__004);
+        BitmapDrawable frame6 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__005);
+        BitmapDrawable frame7 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__006);
+        BitmapDrawable frame8 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__007);
+        BitmapDrawable frame9 = (BitmapDrawable)getResources().getDrawable(R.drawable.attack__008);
 
-        // Get the background, which has been compiled to an AnimationDrawable object.
-        int reasonableDuration = 250;
         mframeAnimation = new AnimationDrawable();
-        mframeAnimation.setOneShot(false);	// loop continuously
-        mframeAnimation.addFrame(frame1, reasonableDuration);
-        mframeAnimation.addFrame(frame2, reasonableDuration);
-        mframeAnimation.addFrame(frame3, reasonableDuration);
-        mframeAnimation.addFrame(frame4, reasonableDuration);
-        mframeAnimation.addFrame(frame5, reasonableDuration);
-        mframeAnimation.addFrame(frame6, reasonableDuration);
-        mframeAnimation.addFrame(frame6, reasonableDuration);
-        mframeAnimation.addFrame(frame6, reasonableDuration);
+        mframeAnimation.setOneShot(false);
+        mframeAnimation.addFrame(frame1, duration);
+        mframeAnimation.addFrame(frame2, duration);
+        mframeAnimation.addFrame(frame3, duration);
+        mframeAnimation.addFrame(frame4, duration);
+        mframeAnimation.addFrame(frame5, duration);
+        mframeAnimation.addFrame(frame6, duration);
+        mframeAnimation.addFrame(frame7, duration);
+        mframeAnimation.addFrame(frame8, duration);
+        mframeAnimation.addFrame(frame9, duration);
+
 
         img.setBackground(mframeAnimation);
 

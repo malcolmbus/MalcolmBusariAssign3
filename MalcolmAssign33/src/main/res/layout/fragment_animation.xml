@@ -42,42 +42,64 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/malcolmStartBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="661dp"
-        android:layout_marginEnd="305dp"
-        android:layout_marginBottom="137dp"
-        android:text="@string/rotate"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="651dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="147dp"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/malcolmStopBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="661dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="137dp"
-        android:text="@string/scale"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="651dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="147dp"
+        android:text="@string/stop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="275dp"
-        android:layout_marginTop="661dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="137dp"
-        android:text="@string/translate"
+    <ImageView
+        android:id="@+id/malcolmEarthImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="323dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="323dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/earth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/malcolmMoonImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="530dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/moon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
