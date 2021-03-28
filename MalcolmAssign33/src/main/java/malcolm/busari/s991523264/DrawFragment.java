@@ -101,11 +101,12 @@ public class DrawFragment extends Fragment {
             colorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                                        @Override
                                                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                                           if (colorSpinner.getSelectedItem().toString() == "0") {
+                                                           int pos = parent.getSelectedItemPosition();
+                                                           if (pos == 0) {
                                                                customCanvas.changeColor(Color.RED);
-                                                           } else if (colorSpinner.getSelectedItem().toString() == "1") {
+                                                           } else if (pos == 1) {
                                                                customCanvas.changeColor(Color.GREEN);
-                                                           } else if (colorSpinner.getSelectedItem().toString() == "2") {
+                                                           } else if (pos == 2) {
                                                                customCanvas.changeColor(Color.BLUE);
                                                            } else {
                                                                customCanvas.changeColor(Color.BLACK);
@@ -120,13 +121,14 @@ public class DrawFragment extends Fragment {
                     widthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            if(widthSpinner.getSelectedItem().toString() == "0"){
+                            int pos = parent.getSelectedItemPosition();
+                            if(pos == 0){
                                 customCanvas.changeStrokeWidth(5f);
                             }
-                            else if(widthSpinner.getSelectedItem().toString() == "1"){
+                            else if(pos == 1){
                                 customCanvas.changeStrokeWidth(6f);
                             }
-                            else if(widthSpinner.getSelectedItem().toString() == "2"){
+                            else if(pos == 2){
                                 customCanvas.changeStrokeWidth(7f);
                             }
                             else{
