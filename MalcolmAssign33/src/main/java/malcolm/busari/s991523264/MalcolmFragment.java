@@ -6,9 +6,7 @@ package malcolm.busari.s991523264;
  */
 
 import android.app.AlertDialog;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -24,10 +22,10 @@ import android.widget.Spinner;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DrawFragment#newInstance} factory method to
+ * Use the {@link MalcolmFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DrawFragment extends Fragment {
+public class MalcolmFragment extends Fragment {
     private CanvasView customCanvas;
     private Spinner colorSpinner;
     private static final String[] paths1 = {"Red", "Green", "Blue"};
@@ -42,7 +40,7 @@ public class DrawFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DrawFragment() {
+    public MalcolmFragment() {
         // Required empty public constructor
     }
 
@@ -52,11 +50,11 @@ public class DrawFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DrawFragment.
+     * @return A new instance of fragment MalcolmFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DrawFragment newInstance(String param1, String param2) {
-        DrawFragment fragment = new DrawFragment();
+    public static MalcolmFragment newInstance(String param1, String param2) {
+        MalcolmFragment fragment = new MalcolmFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -147,18 +145,18 @@ public class DrawFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
-                        .setTitle("Malcolm Busari 991523264")
-                        .setMessage("Are you sure you want to exit this application?")
+                        .setTitle(R.string.malcolm_busari_991523264)
+                        .setMessage(R.string.prompt)
                         .setIcon(R.drawable.alerticon)
                         .setCancelable(true);
                 builder.setPositiveButton(
-                        "Yes",
+                        R.string.yes,
                         (dialog, id) -> {
                             getActivity().finish();
                             System.exit(0);
                         });
                 builder.setNegativeButton(
-                        "No",
+                        R.string.no,
                         (dialog, id) -> dialog.cancel());
                 AlertDialog alert = builder.create();
                 alert.show();

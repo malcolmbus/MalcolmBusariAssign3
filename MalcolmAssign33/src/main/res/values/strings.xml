@@ -16,5 +16,10 @@
     <string name="busari">Busari</string>
     <string name="clear_canvas">Clear</string>
     <string name="update_canvas">Update</string>
+    <string name="prompt">"Are you sure you want to exit this application?"</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="permission_granted">"Camera Permission Granted"</string>
+    <string name="permission_denied">"Camera Permission Denied"</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

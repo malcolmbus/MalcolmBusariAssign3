@@ -21,10 +21,10 @@ import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AnimationFragment#newInstance} factory method to
+ * Use the {@link S991523264Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AnimationFragment extends Fragment {
+public class S991523264Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +35,7 @@ public class AnimationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AnimationFragment() {
+    public S991523264Fragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +45,11 @@ public class AnimationFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AnimationFragment.
+     * @return A new instance of fragment S991523264Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AnimationFragment newInstance(String param1, String param2) {
-        AnimationFragment fragment = new AnimationFragment();
+    public static S991523264Fragment newInstance(String param1, String param2) {
+        S991523264Fragment fragment = new S991523264Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,27 +82,27 @@ public class AnimationFragment extends Fragment {
             stopAnimation();
         });
 
-        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
-                        .setTitle("Malcolm Busari 991523264")
-                        .setMessage("Are you sure you want to exit this application?")
-                        .setIcon(R.drawable.alerticon)
-                        .setCancelable(true);
-                builder.setPositiveButton(
-                        "Yes",
-                        (dialog, id) -> {
-                            getActivity().finish();
-                            System.exit(0);
-                        });
-                builder.setNegativeButton(
-                        "No",
-                        (dialog, id) -> dialog.cancel());
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
+            requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+                @Override
+                public void handleOnBackPressed() {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
+                            .setTitle(R.string.malcolm_busari_991523264)
+                            .setMessage(R.string.prompt)
+                            .setIcon(R.drawable.alerticon)
+                            .setCancelable(true);
+                    builder.setPositiveButton(
+                            R.string.yes,
+                            (dialog, id) -> {
+                                getActivity().finish();
+                                System.exit(0);
+                            });
+                    builder.setNegativeButton(
+                            R.string.no,
+                            (dialog, id) -> dialog.cancel());
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            });
         return view;
     }
 

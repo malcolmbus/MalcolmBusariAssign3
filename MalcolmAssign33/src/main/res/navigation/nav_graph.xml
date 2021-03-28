@@ -6,19 +6,19 @@
     app:startDestination="@id/navigation_home">
     <fragment
         android:id="@+id/navigation_draw"
-        android:name="malcolm.busari.s991523264.DrawFragment"
+        android:name="malcolm.busari.s991523264.MalcolmFragment"
         android:label="@string/draw"
         tools:layout="@layout/fragment_draw" />
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="malcolm.busari.s991523264.HomeFragment"
+        android:name="malcolm.busari.s991523264.BusariFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_animation"
-        android:name="malcolm.busari.s991523264.AnimationFragment"
+        android:name="malcolm.busari.s991523264.S991523264Fragment"
         android:label="@string/animation"
         tools:layout="@layout/fragment_animation" />
 </navigation>

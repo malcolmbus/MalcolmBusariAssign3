@@ -7,7 +7,6 @@ package malcolm.busari.s991523264;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
@@ -16,7 +15,6 @@ import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -36,10 +34,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link BusariFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class BusariFragment extends Fragment {
 
     private static final int CAMERA_PERMISSION_CODE = 100;
     AnimationDrawable mframeAnimation = null;
@@ -56,7 +54,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public BusariFragment() {
         // Required empty public constructor
     }
 
@@ -66,11 +64,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment BusariFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static BusariFragment newInstance(String param1, String param2) {
+        BusariFragment fragment = new BusariFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -144,23 +142,23 @@ public class HomeFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
-                .setTitle("Malcolm Busari 991523264")
-                .setMessage("Are you sure you want to exit this application?")
-                .setIcon(R.drawable.alerticon)
-                .setCancelable(true);
-        builder.setPositiveButton(
-                "Yes",
-                (dialog, id) -> {
-                    getActivity().finish();
-                    System.exit(0);
-                });
-        builder.setNegativeButton(
-                "No",
-                (dialog, id) -> dialog.cancel());
-        AlertDialog alert = builder.create();
-        alert.show();
-                }
-            });
+                        .setTitle(R.string.malcolm_busari_991523264)
+                        .setMessage(R.string.prompt)
+                        .setIcon(R.drawable.alerticon)
+                        .setCancelable(true);
+                builder.setPositiveButton(
+                        R.string.yes,
+                        (dialog, id) -> {
+                            getActivity().finish();
+                            System.exit(0);
+                        });
+                builder.setNegativeButton(
+                        R.string.no,
+                        (dialog, id) -> dialog.cancel());
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
 
         // Handle Stop Button
         Button stopBtn = view.findViewById(R.id.malcolmStopBtn);
@@ -199,12 +197,12 @@ public class HomeFragment extends Fragment {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(getActivity(),
-                        "Camera Permission Granted",
+                        R.string.permission_granted,
                         Toast.LENGTH_SHORT)
                         .show();
             } else {
                 Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content),
-                        "Camera Permission Denied", Snackbar.LENGTH_LONG);
+                        R.string.permission_denied, Snackbar.LENGTH_LONG);
                 snackbar.show();
             }
         }
