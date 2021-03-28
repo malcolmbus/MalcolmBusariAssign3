@@ -14,6 +14,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
@@ -38,7 +39,7 @@ import com.google.android.material.snackbar.Snackbar;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements IOnBackPressed {
+public class HomeFragment extends Fragment {
 
     private static final int CAMERA_PERMISSION_CODE = 100;
     AnimationDrawable mframeAnimation = null;
@@ -139,6 +140,28 @@ public class HomeFragment extends Fragment implements IOnBackPressed {
 
         }));
 
+        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
+                .setTitle("Malcolm Busari 991523264")
+                .setMessage("Are you sure you want to exit this application?")
+                .setIcon(R.drawable.alerticon)
+                .setCancelable(true);
+        builder.setPositiveButton(
+                "Yes",
+                (dialog, id) -> {
+                    getActivity().finish();
+                    System.exit(0);
+                });
+        builder.setNegativeButton(
+                "No",
+                (dialog, id) -> dialog.cancel());
+        AlertDialog alert = builder.create();
+        alert.show();
+                }
+            });
+
         // Handle Stop Button
         Button stopBtn = view.findViewById(R.id.malcolmStopBtn);
         stopBtn.setOnClickListener(v -> stopAnimation());
@@ -225,26 +248,4 @@ public class HomeFragment extends Fragment implements IOnBackPressed {
         mframeAnimation.stop();
         mframeAnimation.setVisible(false,false);
     }
-
-    @Override
-    public boolean onBackPressed(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
-                .setTitle("Malcolm Busari 991523264")
-                .setMessage("Are you sure you want to exit this application?")
-                .setIcon(R.drawable.alerticon)
-                .setCancelable(true);
-        builder.setPositiveButton(
-                "Yes",
-                (dialog, id) -> {
-                    getActivity().finish();
-                    System.exit(0);
-                });
-        builder.setNegativeButton(
-                "No",
-                (dialog, id) -> dialog.cancel());
-        AlertDialog alert = builder.create();
-        alert.show();
-        return false;
-    }
-
 }

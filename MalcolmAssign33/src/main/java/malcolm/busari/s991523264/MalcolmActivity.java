@@ -34,25 +34,4 @@ public class MalcolmActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-
-    @Override
-    public void onBackPressed() {
-
-        List fragmentList = getSupportFragmentManager().getFragments();
-
-        boolean handled = false;
-        for(Object f : fragmentList) {
-            if(f instanceof IOnBackPressed) {
-                handled = ((IOnBackPressed)f).onBackPressed();
-
-                if(handled) {
-                    break;
-                }
-            }
-        }
-
-        if(!handled) {
-            super.onBackPressed();
-        }
-    }
-    }
+}

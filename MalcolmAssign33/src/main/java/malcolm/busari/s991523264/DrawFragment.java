@@ -5,11 +5,13 @@ package malcolm.busari.s991523264;
  * Section No: 1211_34780
  */
 
+import android.app.AlertDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -137,6 +139,28 @@ public class DrawFragment extends Fragment {
                         }
 
                     });
+        });
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
+                        .setTitle("Malcolm Busari 991523264")
+                        .setMessage("Are you sure you want to exit this application?")
+                        .setIcon(R.drawable.alerticon)
+                        .setCancelable(true);
+                builder.setPositiveButton(
+                        "Yes",
+                        (dialog, id) -> {
+                            getActivity().finish();
+                            System.exit(0);
+                        });
+                builder.setNegativeButton(
+                        "No",
+                        (dialog, id) -> dialog.cancel());
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
         });
         return view;
     }

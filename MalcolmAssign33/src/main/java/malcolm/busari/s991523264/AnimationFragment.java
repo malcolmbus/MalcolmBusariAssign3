@@ -5,8 +5,10 @@ package malcolm.busari.s991523264;
  * Section No: 1211_34780
  */
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -79,6 +81,28 @@ public class AnimationFragment extends Fragment {
         stopBtn.setOnClickListener(v -> {
             stopAnimation();
         });
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
+                        .setTitle("Malcolm Busari 991523264")
+                        .setMessage("Are you sure you want to exit this application?")
+                        .setIcon(R.drawable.alerticon)
+                        .setCancelable(true);
+                builder.setPositiveButton(
+                        "Yes",
+                        (dialog, id) -> {
+                            getActivity().finish();
+                            System.exit(0);
+                        });
+                builder.setNegativeButton(
+                        "No",
+                        (dialog, id) -> dialog.cancel());
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
         return view;
     }
 
@@ -104,7 +128,6 @@ public class AnimationFragment extends Fragment {
             // Hide our ImageView
             ImageView reusableImageView = getView().findViewById(R.id.malcolmMoonImg);
             reusableImageView.setVisibility(View.INVISIBLE);
-
         }
 
         public void onAnimationRepeat(Animation animation) {
@@ -115,6 +138,5 @@ public class AnimationFragment extends Fragment {
             // Disable all buttons while animation is running
 
         }
-
     }
 }
