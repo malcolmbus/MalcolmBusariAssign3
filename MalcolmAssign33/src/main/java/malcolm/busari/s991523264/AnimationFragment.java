@@ -1,4 +1,9 @@
 package malcolm.busari.s991523264;
+/**
+ * Name: Malcolm Busari
+ * Student ID: 991523264
+ * Section No: 1211_34780
+ */
 
 import android.os.Bundle;
 
@@ -66,13 +71,13 @@ public class AnimationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_animation, container, false);
 
         Button startBtn = view.findViewById(R.id.malcolmStartBtn);
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performAnimation(R.anim.rotate);
-                performAnimation(R.anim.scale);
-                performAnimation(R.anim.translate);
-            }
+        startBtn.setOnClickListener(v -> {
+            performAnimation(R.anim.orbit);
+        });
+
+        Button stopBtn = view.findViewById(R.id.malcolmStopBtn);
+        stopBtn.setOnClickListener(v -> {
+            stopAnimation();
         });
         return view;
     }
@@ -86,6 +91,11 @@ public class AnimationFragment extends Fragment {
         Animation an =  AnimationUtils.loadAnimation(getContext(), animationResourceID);
         an.setAnimationListener(new MyAnimationListener());
         reusableImageView.startAnimation(an);
+    }
+
+    private void stopAnimation(){
+        ImageView reusableImageView = getView().findViewById(R.id.malcolmMoonImg);
+        reusableImageView.clearAnimation();
     }
 
     class MyAnimationListener implements Animation.AnimationListener {

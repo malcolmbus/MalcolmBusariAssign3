@@ -1,6 +1,12 @@
 package malcolm.busari.s991523264;
+/**
+ * Name: Malcolm Busari
+ * Student ID: 991523264
+ * Section No: 1211_34780
+ */
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -32,7 +38,7 @@ import com.google.android.material.snackbar.Snackbar;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements IOnBackPressed {
 
     private static final int CAMERA_PERMISSION_CODE = 100;
     AnimationDrawable mframeAnimation = null;
@@ -74,6 +80,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -113,7 +120,6 @@ public class HomeFragment extends Fragment {
                 }
                 else if(pos == 1){
                     startAnimation(300);
-
                 }
                 else if(pos == 2){
                     startAnimation(350);
@@ -218,7 +224,27 @@ public class HomeFragment extends Fragment {
     {
         mframeAnimation.stop();
         mframeAnimation.setVisible(false,false);
+    }
 
+    @Override
+    public boolean onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getView().getContext())
+                .setTitle("Malcolm Busari 991523264")
+                .setMessage("Are you sure you want to exit this application?")
+                .setIcon(R.drawable.alerticon)
+                .setCancelable(true);
+        builder.setPositiveButton(
+                "Yes",
+                (dialog, id) -> {
+                    getActivity().finish();
+                    System.exit(0);
+                });
+        builder.setNegativeButton(
+                "No",
+                (dialog, id) -> dialog.cancel());
+        AlertDialog alert = builder.create();
+        alert.show();
+        return false;
     }
 
 }

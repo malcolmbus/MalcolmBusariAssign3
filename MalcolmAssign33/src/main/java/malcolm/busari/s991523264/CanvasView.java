@@ -1,4 +1,9 @@
 package malcolm.busari.s991523264;
+/**
+ * Name: Malcolm Busari
+ * Student ID: 991523264
+ * Section No: 1211_34780
+ */
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -38,11 +43,11 @@ public class CanvasView extends View {
         mPaint.setStrokeWidth(4f);
     }
 
-    public void changeColor(int color){
+    protected void changeColor(int color){
         mPaint.setColor(color);
     }
 
-    public void changeStrokeWidth(float width){
+    protected void changeStrokeWidth(float width){
         mPaint.setStrokeWidth(width);
     }
 

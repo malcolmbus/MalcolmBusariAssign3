@@ -1,4 +1,9 @@
 package malcolm.busari.s991523264;
+/**
+ * Name: Malcolm Busari
+ * Student ID: 991523264
+ * Section No: 1211_34780
+ */
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -83,7 +88,6 @@ public class DrawFragment extends Fragment {
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, paths2);
 
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         colorSpinner.setAdapter(adapter1);
         widthSpinner.setAdapter(adapter2);
 
@@ -92,74 +96,47 @@ public class DrawFragment extends Fragment {
 
         Button updateBtn = view.findViewById(R.id.malcolmUpdateBtn);
         updateBtn.setOnClickListener(v -> {
-            if(colorSpinner.getSelectedItem().toString() == "0"){
-                customCanvas.changeColor(Color.RED);
-            }
-            else if(colorSpinner.getSelectedItem().toString() == "1"){
-                customCanvas.changeColor(Color.GREEN);
-            }
-            else if(colorSpinner.getSelectedItem().toString() == "2"){
-                customCanvas.changeColor(Color.BLUE);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "0"){
-                customCanvas.changeStrokeWidth(5f);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "1"){
-                customCanvas.changeStrokeWidth(6f);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "2"){
-                customCanvas.changeStrokeWidth(7f);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "0"
-                && colorSpinner.getSelectedItem().toString() == "0"){
-                customCanvas.changeStrokeWidth(5f);
-                customCanvas.changeColor(Color.RED);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "0"
-                    && colorSpinner.getSelectedItem().toString() == "1"){
-                customCanvas.changeStrokeWidth(5f);
-                customCanvas.changeColor(Color.GREEN);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "0"
-                    && colorSpinner.getSelectedItem().toString() == "2"){
-                customCanvas.changeStrokeWidth(5f);
-                customCanvas.changeColor(Color.BLUE);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "1"
-                    && colorSpinner.getSelectedItem().toString() == "0"){
-                customCanvas.changeStrokeWidth(6f);
-                customCanvas.changeColor(Color.RED);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "1"
-                    && colorSpinner.getSelectedItem().toString() == "1"){
-                customCanvas.changeStrokeWidth(6f);
-                customCanvas.changeColor(Color.GREEN);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "1"
-                    && colorSpinner.getSelectedItem().toString() == "2"){
-                customCanvas.changeStrokeWidth(6f);
-                customCanvas.changeColor(Color.BLUE);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "2"
-                    && colorSpinner.getSelectedItem().toString() == "0"){
-                customCanvas.changeStrokeWidth(7f);
-                customCanvas.changeColor(Color.RED);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "2"
-                    && colorSpinner.getSelectedItem().toString() == "1"){
-                customCanvas.changeStrokeWidth(7f);
-                customCanvas.changeColor(Color.GREEN);
-            }
-            else if(widthSpinner.getSelectedItem().toString() == "2"
-                    && colorSpinner.getSelectedItem().toString() == "2"){
-                customCanvas.changeStrokeWidth(7f);
-                customCanvas.changeColor(Color.BLUE);
-            }
-            else{
-                customCanvas.changeStrokeWidth(5f);
-                customCanvas.changeColor(Color.BLACK);
-            }
+            colorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                                       @Override
+                                                       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                                           if (colorSpinner.getSelectedItem().toString() == "0") {
+                                                               customCanvas.changeColor(Color.RED);
+                                                           } else if (colorSpinner.getSelectedItem().toString() == "1") {
+                                                               customCanvas.changeColor(Color.GREEN);
+                                                           } else if (colorSpinner.getSelectedItem().toString() == "2") {
+                                                               customCanvas.changeColor(Color.BLUE);
+                                                           } else {
+                                                               customCanvas.changeColor(Color.BLACK);
+                                                           }
+                                                       }
 
+                                                       @Override
+                                                       public void onNothingSelected(AdapterView<?> parent) {
+                                                       }
+                                                   });
+
+                    widthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            if(widthSpinner.getSelectedItem().toString() == "0"){
+                                customCanvas.changeStrokeWidth(5f);
+                            }
+                            else if(widthSpinner.getSelectedItem().toString() == "1"){
+                                customCanvas.changeStrokeWidth(6f);
+                            }
+                            else if(widthSpinner.getSelectedItem().toString() == "2"){
+                                customCanvas.changeStrokeWidth(7f);
+                            }
+                            else{
+                                customCanvas.changeStrokeWidth(5f);
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
+
+                    });
         });
         return view;
     }
