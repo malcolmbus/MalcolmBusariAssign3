@@ -38,6 +38,14 @@ public class CanvasView extends View {
         mPaint.setStrokeWidth(4f);
     }
 
+    public void changeColor(int color){
+        mPaint.setColor(color);
+    }
+
+    public void changeStrokeWidth(float width){
+        mPaint.setStrokeWidth(width);
+    }
+
     // override onSizeChanged
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {

@@ -1,5 +1,8 @@
 package malcolm.busari.s991523264;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,7 +22,10 @@ import android.view.ViewGroup;
  */
 public class DrawFragment extends Fragment {
     private CanvasView customCanvas;
-
+    private Spinner colorSpinner;
+    private static final String[] paths1 = {"Red", "Green", "Blue"};
+    private static final String[] paths2 = {"5", "6", "7"};
+    private Spinner widthSpinner;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,7 +61,6 @@ public class DrawFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        customCanvas = (CanvasView) getView().findViewById(R.id.malcolmCanvasView);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -63,11 +72,99 @@ public class DrawFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+        View view = inflater.inflate(R.layout.fragment_draw, container, false);
+        customCanvas = view.findViewById(R.id.malcolmCanvasView);
 
-        return inflater.inflate(R.layout.fragment_draw, container, false);
+        colorSpinner = view.findViewById(R.id.malcolmColorSpinner);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, paths1);
+
+        widthSpinner = view.findViewById(R.id.malcolmWidthSpinner);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item, paths2);
+
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        colorSpinner.setAdapter(adapter1);
+        widthSpinner.setAdapter(adapter2);
+
+        Button clearBtn = view.findViewById(R.id.malcolmClearBtn);
+        clearBtn.setOnClickListener(v -> clearCanvas(view));
+
+        Button updateBtn = view.findViewById(R.id.malcolmUpdateBtn);
+        updateBtn.setOnClickListener(v -> {
+            if(colorSpinner.getSelectedItem().toString() == "0"){
+                customCanvas.changeColor(Color.RED);
+            }
+            else if(colorSpinner.getSelectedItem().toString() == "1"){
+                customCanvas.changeColor(Color.GREEN);
+            }
+            else if(colorSpinner.getSelectedItem().toString() == "2"){
+                customCanvas.changeColor(Color.BLUE);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "0"){
+                customCanvas.changeStrokeWidth(5f);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "1"){
+                customCanvas.changeStrokeWidth(6f);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "2"){
+                customCanvas.changeStrokeWidth(7f);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "0"
+                && colorSpinner.getSelectedItem().toString() == "0"){
+                customCanvas.changeStrokeWidth(5f);
+                customCanvas.changeColor(Color.RED);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "0"
+                    && colorSpinner.getSelectedItem().toString() == "1"){
+                customCanvas.changeStrokeWidth(5f);
+                customCanvas.changeColor(Color.GREEN);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "0"
+                    && colorSpinner.getSelectedItem().toString() == "2"){
+                customCanvas.changeStrokeWidth(5f);
+                customCanvas.changeColor(Color.BLUE);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "1"
+                    && colorSpinner.getSelectedItem().toString() == "0"){
+                customCanvas.changeStrokeWidth(6f);
+                customCanvas.changeColor(Color.RED);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "1"
+                    && colorSpinner.getSelectedItem().toString() == "1"){
+                customCanvas.changeStrokeWidth(6f);
+                customCanvas.changeColor(Color.GREEN);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "1"
+                    && colorSpinner.getSelectedItem().toString() == "2"){
+                customCanvas.changeStrokeWidth(6f);
+                customCanvas.changeColor(Color.BLUE);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "2"
+                    && colorSpinner.getSelectedItem().toString() == "0"){
+                customCanvas.changeStrokeWidth(7f);
+                customCanvas.changeColor(Color.RED);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "2"
+                    && colorSpinner.getSelectedItem().toString() == "1"){
+                customCanvas.changeStrokeWidth(7f);
+                customCanvas.changeColor(Color.GREEN);
+            }
+            else if(widthSpinner.getSelectedItem().toString() == "2"
+                    && colorSpinner.getSelectedItem().toString() == "2"){
+                customCanvas.changeStrokeWidth(7f);
+                customCanvas.changeColor(Color.BLUE);
+            }
+            else{
+                customCanvas.changeStrokeWidth(5f);
+                customCanvas.changeColor(Color.BLACK);
+            }
+
+        });
+        return view;
     }
 
     public void clearCanvas(View v){
-        customCanvas.clearCanvas();
+        customCanvas.clearCanvas();;
     }
 }

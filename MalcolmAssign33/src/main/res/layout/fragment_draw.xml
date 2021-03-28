@@ -14,30 +14,27 @@
         android:layout_width="400dp"
         android:layout_height="23dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="682dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="648dp"
         android:text="@string/malcolm_busari_991523264"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/malcolmDrawIV"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="218dp"
         android:layout_marginEnd="90dp"
-        android:layout_marginBottom="402dp"
+        android:layout_marginBottom="428dp"
         android:adjustViewBounds="true"
-        android:contentDescription="TODO"
         android:scaleType="fitXY"
         android:src="@drawable/lion"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,12 +44,12 @@
 
     <malcolm.busari.s991523264.CanvasView
         android:id="@+id/malcolmCanvasView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="495dp"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="217dp"
+        android:layout_width="393dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="421dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="269dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,16 +59,56 @@
         android:id="@+id/malcolmClearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="651dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="32dp"
-        android:onClick="clearCanvas"
-        android:text="Clear Canvas"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="626dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="172dp"
+        android:text="@string/clear_canvas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/malcolmUpdateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="626dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="172dp"
+        android:text="@string/update_canvas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/malcolmColorSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="592dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/malcolmWidthSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="592dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
