@@ -2,4 +2,4 @@
 [Link](https://github.com/malcolmbus/MalcolmBusariAssign3)
 
 ## Description
-This demonstrates the use of fragments, animations and canvas in Android Studio.
+This application demonstrates the use of fragments, animations and canvas in Android Studio.
